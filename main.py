@@ -10,9 +10,9 @@ logger = logging.getLogger(__name__)
 
 def get_db_config():
     return {
-            'username': os.environ.get('DB_USERNAME'),
-            'password': os.environ.get('DB_PASSWORD'),
-            'database_path': os.environ.get('DB_PATH'),
+            'username': os.environ['DB_USERNAME'],
+            'password': os.environ['DB_PASSWORD'],
+            'database_path': os.environ['DB_PATH'],
             'timeout': 5
         }
 
