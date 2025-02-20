@@ -1,18 +1,18 @@
+import os
 import sqlite3
 from typing import Optional
 from pathlib import Path
-import base64
 import logging
-
+from dotenv import load_dotenv
+load_dotenv() 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def get_db_config():
-    """Get database configuration from environment variables or defaults"""
     return {
-            'username': 'admin',
-            'password': base64.b64decode('ZG9udF9oYXJkX2NvZGVfc2Vuc2libGVzX3ZhbHVlcw==').decode('utf-8'),
-            'database_path': 'database.db',
+            'username': os.environ.get('DB_USERNAME'),
+            'password': os.environ.get('DB_PASSWORD'),
+            'database_path': os.environ.get('DB_PATH'),
             'timeout': 5
         }
 
